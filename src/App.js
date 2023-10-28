@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import Weather from "./Weather"
 
 function App() {
   return (
@@ -7,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <Weather />
         </p>
         <a
           className="App-link"

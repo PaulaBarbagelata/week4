@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import reportWebVitals from './reportWebVitals';
+
 import Weather from "./Weather"
 import "./weather.css";
 
@@ -14,7 +14,7 @@ root.render(
     </div>
     
     <div >
-        Sourced by Paula Barbagelata <a href="https://github.com/PaulaBarbagelata/week4" target="_blank">See moore on GitHub</a>
+        Sourced by Paula Barbagelata <a href="https://github.com/PaulaBarbagelata/week4" target="_blank"  rel="noreferrer">See moore on GitHub</a>
     </div>
   </React.StrictMode>
 );

@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import Weather from "./Weather"
+
 
 function App() {
   return (
@@ -11,13 +11,17 @@ function App() {
         <p>
         <Weather />
         </p>
+
+        <div class="Endpage">
+        Sourced by Paula Barbagelata <a href="https://github.com/PaulaBarbagelata/week4" target="_blank">See moore on GitHub</a>
+    </div>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+         
         </a>
       </header>
     </div>

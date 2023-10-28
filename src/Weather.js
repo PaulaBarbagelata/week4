@@ -1,10 +1,12 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./weather.css";
 
 export default function SearchEngine() {
-  const [city, setCity] = useState("");
+  const [defaultCity] = useState("New York"); // Ciudad predeterminada, sin useState para que no sea modificable
+  const [city, setCity] = useState(defaultCity); // Ciudad actual
   const [searchResult, setSearchResult] = useState("");
-  const [ setTemperature] = useState(null);
+  const [temperature, setTemperature] = useState(null);
   const [description, setDescription] = useState("");
   const [humidity, setHumidity] = useState(null);
   const [wind, setWind] = useState(null);
@@ -36,6 +38,10 @@ export default function SearchEngine() {
     }
   }
 
+  useEffect(() => {
+    getWeatherData(city); // Cargar los datos de la ciudad actual al cargar la página
+  }, [city]);
+
   function handleSubmit(event) {
     event.preventDefault();
     if (city) {
@@ -50,23 +56,47 @@ export default function SearchEngine() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="search" onChange={updateCity} />
-        <input type="submit" value="Search" />
-      </form>
-      <ul>
-        <li>{searchResult}</li>
-        <li>Description: {description}</li>
-        <li>Humidity: {humidity}%</li>
-        <li>Wind Speed: {wind} km/h</li>
-      </ul>
-      {icon && (
-        <img
-          src={`https://openweathermap.org/img/w/${icon}.png`}
-          alt="Weather Icon"
-        />
-      )}
+    <div className="Weather">
+      <div>
+        <form className="mb-3" onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input type="search" onChange={updateCity} value={city} />
+            </div>
+            <div className="col-3">
+              <input type="submit" value="Search" />
+            </div>
+          </div>
+        </form>
+      <div className="overview">
+        <h1>{searchResult}</h1>
+        <ul className="detail">
+          
+          <li>{description}</li>
+        </ul>
+      </div>
+      <div className="row">
+        <div className="col-6">
+          <div className="clearfix weather-temperature temp">
+            <img
+               src={`https://openweathermap.org/img/w/${icon}.png`}
+               alt="Weather Icon"
+              className="float-left"
+            />
+            <div className="float-left">
+              <strong>{temperature}</strong>
+              
+            </div>
+          </div>
+        </div>
+        <div className="col-6">
+          <ul className="detail">
+            <li>Humidity: {humidity}%</li>
+            <li>Wind Speed: {wind} km/h</li>
+          </ul>
+          </div>
+      </div>
+    </div>
     </div>
   );
 }

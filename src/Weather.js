@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 
 export default function SearchEngine() {
   const [city, setCity] = useState("");
   const [searchResult, setSearchResult] = useState("");
-  const [temperature, setTemperature] = useState(null);
+  const [ setTemperature] = useState(null);
   const [description, setDescription] = useState("");
   const [humidity, setHumidity] = useState(null);
   const [wind, setWind] = useState(null);

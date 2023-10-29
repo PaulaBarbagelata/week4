@@ -31,7 +31,7 @@ export default function SearchEngine() {
       setWind(windSpeed);
       setIcon(weatherIcon);
 
-      setSearchResult(`The temperature in ${city} is ${temp}°C.`);
+      setSearchResult(`The Weather in ${city} is `);
     } catch (error) {
       setSearchResult("Error fetching weather data");
       console.error("Error fetching data:", error);
@@ -58,16 +58,18 @@ export default function SearchEngine() {
   return (
     <div className="Weather">
       <div>
+      <div className="search">
         <form className="mb-3" onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-6">
+            <div className="col-sm-6">
               <input type="search" onChange={updateCity} value={city} />
             </div>
-            <div className="col-6">
+            <div className="col-sm-6">
               <input type="submit" value="Search" />
             </div>
           </div>
         </form>
+        </div>
       <div className="overview">
         <h1>{searchResult}</h1>
         <ul className="detail">
@@ -75,17 +77,18 @@ export default function SearchEngine() {
           <li>{description}</li>
         </ul>
       </div>
+      
       <div className="row">
         <div className="col-6">
           <div className="clearfix weather-temperature temp">
-            <img
+            
+            <div className="float-left">
+              <strong>{Math.round(temperature)}°C</strong>
+              <img
                src={`https://openweathermap.org/img/w/${icon}.png`}
                alt="Weather Icon"
               className="float-left"
             />
-            <div className="float-left">
-              <strong>{Math.round(temperature)}°C</strong>
-              
             </div>
           </div>
         </div>

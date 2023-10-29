@@ -3,8 +3,17 @@
     border: 1px solid #dadde1;
     border-radius: 5px;
     text-align: center;
+   
   }
   
+  .search {
+    font-size: 40px;
+    margin: 10px auto;
+    display:block;
+    text-align: center;
+    border-radius: 5px;
+
+  }
   .Weather .overview {
     margin-bottom: 20px;
   }

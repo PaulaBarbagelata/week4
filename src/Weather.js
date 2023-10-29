@@ -3,8 +3,8 @@ import axios from "axios";
 import "./weather.css";
 
 export default function SearchEngine() {
-  const [defaultCity] = useState("New York"); // Ciudad predeterminada, sin useState para que no sea modificable
-  const [city, setCity] = useState(defaultCity); // Ciudad actual
+  const [defaultCity] = useState("New York"); 
+  const [city, setCity] = useState(defaultCity);
   const [searchResult, setSearchResult] = useState("");
   const [temperature, setTemperature] = useState(null);
   const [description, setDescription] = useState("");
@@ -39,7 +39,7 @@ export default function SearchEngine() {
   }
 
   useEffect(() => {
-    getWeatherData(city); // Cargar los datos de la ciudad actual al cargar la página
+    getWeatherData(city); 
   }, [city]);
 
   function handleSubmit(event) {

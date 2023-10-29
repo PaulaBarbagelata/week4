@@ -60,10 +60,10 @@ export default function SearchEngine() {
       <div>
         <form className="mb-3" onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-6">
               <input type="search" onChange={updateCity} value={city} />
             </div>
-            <div className="col-3">
+            <div className="col-6">
               <input type="submit" value="Search" />
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function SearchEngine() {
               className="float-left"
             />
             <div className="float-left">
-              <strong>{temperature}</strong>
+              <strong>{Math.round(temperature)}°C</strong>
               
             </div>
           </div>
